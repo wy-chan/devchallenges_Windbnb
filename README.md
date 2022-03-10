@@ -37,7 +37,7 @@
 
 ## Overview
 
-<img src="images/windbnb_screen.png" alt="screenshot" height="200">
+<img src="images/windbnb_screen.png" alt="screenshot" height="300">
 
 <img src="images/windbnb_screen1.png" alt="screenshot" height="200">&nbsp;&nbsp;<img src="images/windbnb_screen2.png" alt="screenshot" height="200">
 
