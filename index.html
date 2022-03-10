@@ -19,9 +19,54 @@
 <nav id="navbar">
 <img class="top-logo" src="https://raw.githubusercontent.com/wy-chan/devchallenges_Windbnb/f32c76c3349465dbf21f3296ef391e609f8c9a89/images/logo.svg"/>
 <div class="search-bar">
-<span class="search-location search-option search-active"><p>Helsinki, Finland</p></span>
-<span class="search-guest search-option"><p>Add guests</p></span>
-<span class="material-icons search-icon">search</span>
+<button id="search-location" class="search-btn-s search-location search-option search-active"><p>Helsinki, Finland</p></button>
+<button id="search-guest" class="search-btn-s search-guest search-option"><p>Add guests</p></button>
+<button class="search-btn-s material-icons search-icon">search</button>
+</div>
+</nav>
+<nav id="navbar-expand" class="">
+<div class="navbar-expand-box">
+<div class="search-bar-expand">
+<button id="search-location-l" class="search-btn-l search-location-l search-option search-option-l search-active search-focus">
+  <h3>Location</h3>
+  <p id="searh-bar-location">Helsinki, Finland</p>
+ </button>
+<button id="search-guest-l" class="search-btn-l search-guest-l search-option search-option-l">
+  <h3>Guests</h3>
+  <p id="total-guests">Add guests</p> 
+  </button>
+<div class="search-icon-l-box">
+<button class="search-icon-l">
+<span class="material-icons">search</span>
+Search</button>
+</div> 
+</div> 
+<div class="search-list-box">
+<ul id="location-list" class="location-list search-list">
+  <li class="location-options"><span class="material-icons place-icon">place</span>Helsinki, Finland</li>
+  <li class="location-options"><span class="material-icons place-icon">place</span>Turku, Finland</li>
+  <li class="location-options"><span class="material-icons place-icon">place</span>Oulu, Finland</li>
+  <li class="location-options"><span class="material-icons place-icon">place</span>Vaasa, Finland</li>
+</ul>
+<div id="guest-list" class="guest-list search-list hidden"> 
+  <h4>Adults</h4>
+  <p>Ages 13 or above</p>
+  <div class="guest-no-box">
+  <button id="adult-remove" class="change-btn remove-btn" disabled><span class="material-icons change-icon">remove</span></button>
+  <span id="adult-no" class="guest-no">0</span>
+  <button id="adult-add" class="change-btn add-btn"><span class="material-icons change-icon">add</span></button>
+  </div>
+  <h4>Children</h4>
+  <p>Ages 2-12</p>
+  <div class="guest-no-box">
+  <button id="child-remove" class="change-btn remove-btn" disabled><span class="material-icons change-icon">remove</span></button>
+  <span id="child-no" class="guest-no">0</span>
+  <button id="child-add" class="change-btn add-btn"><span class="material-icons change-icon">add</span></button>
+  </div>
+</div> 
+</div>
+</div>
+<div class="nav-blank">
 </div>
 </nav>
 </header>
@@ -30,7 +75,8 @@
   <h1>Stays in Finland</h1>
   <span>12+ stays</span>
   </div>
-  <div class="grid-group">
+  <div class="grid-group" id="grid-group">
+    <!--
   <div class="grid-box">
     <div class="img-box">
       <img src="https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?ixlib=rb-1.2.1&auto=format&fit=crop&w=2255&q=80" alt = "Room Image" class="room-img"/>
@@ -38,15 +84,17 @@
     <div class="desc-box">
       <div class="desc-box-L">
       <span class="super-host">Super host</span>
-      <span class="details">Entire apartment . 2 beds</span>
+      <span class="details">Entire apartment</span>
+      <span class="details"> . 2 beds</span>
       </div>
       <div class="desc-box-R">
       <span class="material-icons star-icon">star</span>
       <span class="rating">4.40</span>
       </div> 
       </div>
-    <h2>Stylist apartment in center of the city</h2>
+    <h2 class="box-title">Stylist apartment in center of the city</h2>
   </div>
+-->
   </div>
 </main>
 <footer>
