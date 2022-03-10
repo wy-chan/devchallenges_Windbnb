@@ -3,7 +3,7 @@ let myDataSorted;
 
 let dataURL = 'https://raw.githubusercontent.com/wy-chan/devchallenges_Windbnb/main/stays.json';
 
-let currentLocation = "Helsinki, Finland";
+let currentLocation = "Add location";
 let currentGuest = 0;
     
 
@@ -100,6 +100,7 @@ document.getElementById("search-guest-l").classList.remove("search-focus");
 document.getElementById("search-location-l").classList.add("search-focus");
 document.getElementById("location-list").classList.remove("hidden");
 document.getElementById("guest-list").classList.add("hidden");
+document.getElementById("search-location-l").classList.add("search-active");
 if($("#total-guests").text() == "Add guests"){
   document.getElementById("search-guest-l").classList.remove("search-active");
 };
@@ -110,6 +111,9 @@ document.getElementById("search-guest-l").classList.add("search-focus");
 document.getElementById("location-list").classList.add("hidden");
 document.getElementById("guest-list").classList.remove("hidden");
 document.getElementById("search-guest-l").classList.add("search-active");
+  if($("#searh-bar-location").text() == "Add location"){
+  document.getElementById("search-location-l").classList.remove("search-active");
+};
 }
 
 function locationSelect(t){
@@ -188,6 +192,7 @@ function sortLocation(){
   };
   return newList;
 }
+
 function sortGuests(list){
   let newList=[];
   for(let i=0; i< list.length;i++){
@@ -208,8 +213,18 @@ function handleSearch(){
   }else{
     $("#search-guest").addClass("search-active");
   };
+    if(currentLocation == "Add location"){
+    $("#search-location").removeClass("search-active");
+  }else{
+    $("#search-location").addClass("search-active");
+  };
   let locationList = sortLocation();
   let guestList = sortGuests(locationList);
+  if(guestList.length <12){
+     $("#stays-no").text(guestList.length+ " stays");
+  }else{
+     $("#stays-no").text("12+ stays");
+  }
   $("#grid-group").empty();
   getBoxes(guestList);
 }
