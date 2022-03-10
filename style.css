@@ -302,9 +302,7 @@ margin:0;
 .search-active{
   color: #333333;
 }
-#stays-no{
-background: pink;
-}
+
 .grid-group{
   display: flex;
   flex-wrap: wrap;
@@ -312,7 +310,6 @@ background: pink;
   column-gap: 2%;
   justify-content: flex-start;
   align-items: flex-start;
-  background: pink;
 }
 .grid-box{
   width:32%;
