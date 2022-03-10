@@ -52,6 +52,7 @@ Challenge: Create a small version of Airbnb - Windbnb with given data.
 - HTML
 - CSS
 - JavaScript
+- jQuery
 
 ## Features
 
