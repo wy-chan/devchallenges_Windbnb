@@ -37,11 +37,13 @@
 
 ## Overview
 
-<img src="images/screenshot00.png" alt="screenshot" height="500">
+<img src="images/windbnb_screen.png" alt="screenshot" height="500">
+
+<img src="images/windbnb_screen1.png" alt="screenshot" height="500">&nbsp;&nbsp;<img src="images/windbnb_screen2.png" alt="screenshot" height="500">
 
 - Mobile:
 
-<img src="images/screenshot01.png" alt="screenshot" height="500">&nbsp;&nbsp;<img src="images/screenshot2.png" alt="screenshot" height="500">&nbsp;&nbsp;<img src="images/screenshot3.png" alt="screenshot" height="500">&nbsp;&nbsp;<img src="images/screenshot4.png" alt="screenshot" height="500">
+<img src="images/windbnb_screen_m.png" alt="screenshot" height="500">&nbsp;&nbsp;<img src="images/windbnb_screen_m1.png" alt="screenshot" height="500">&nbsp;&nbsp;<img src="images/windbnb_screen_m2.png" alt="screenshot" height="500">
 
 See demo here: https://wy-chan.github.io/devchallenges_Windbnb/
 
