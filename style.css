@@ -27,6 +27,7 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background:white;
 }
 main{
   width:86.8%;
@@ -50,7 +51,6 @@ margin:0;
 }
 
 #navbar{
-
   padding-top:21px;
   padding-bottom:21px;
   display: flex;
@@ -61,7 +61,7 @@ margin:0;
 } 
 
 #navbar-expand{
-  position: fixed;
+  position: absolute;
   top:0;
   left:0;
   height:100vh;
@@ -76,6 +76,22 @@ margin:0;
   background: white;
   padding-top:93px;
 }
+.edit-box{
+  width:93.6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+.edit-text{
+font-weight: 700;
+font-size: 15px;
+line-height: 15px;
+}
+.search-icon-l-1{
+ font-size: 12px;
+}
+
 .search-bar-expand{
   width:86.8%;
   background: white;
@@ -136,6 +152,9 @@ width:96px;
   border-radius: 16px;
   padding:15px 26px;
   border: none;
+}
+.search-icon-l-2{
+  display:none;
 }
 
 .search-icon-l:hover{
@@ -259,7 +278,7 @@ margin:0;
   color:#dddddd;
   border: 1px solid #dddddd;
 }
-.change-btn > .change-icon{
+.change-icon{
   font-size:20px;
   padding:0;
   margin:0;
@@ -354,4 +373,62 @@ text-align: center;
 em{
   font-style: normal;
   font-weight: bold;
+}
+
+@media(max-width:800px){
+  main{
+  margin-top:167px;
+  width:93.6%;
+}
+  .grid-box, .desc-box, .img-box, .room-img{
+    width:100%;
+  }
+
+  #navbar{
+    flex-direction: column;
+    row-gap:37.25px;
+  }
+  .search-bar{
+    align-self:center;
+  }
+  .search-bar-expand{
+    height:113px;
+   width:93.6%;
+   flex-direction: column; 
+
+  }
+  .edit-box{
+  display: flex;
+  margin-bottom:16px;
+  }
+  .close-btn:hover{
+  cursor: pointer;
+  }
+  .navbar-expand-box{
+    padding-top:18px;
+  }
+  .search-icon-l-box{
+    display: none;
+  }
+  .search-icon-l-2{
+  display:flex;
+  margin-bottom:24px;
+}
+.search-btn-l{
+ width:100%;
+  padding-top: 11px;
+  padding-bottom:11px;
+  margin:0;
+}
+  #guest-list{
+  margin-left:0;
+  padding-left: 27px;
+}
+  .search-list-box{
+      width:93.6%;
+  }
+  .search-list{
+    flex-basis:auto;
+}
+
 }
