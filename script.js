@@ -1,247 +1,450 @@
-let myData;
-let myDataSorted;
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Mulish:wght@400;700;800&family=Poppins:wght@500;700&display=swap');
 
-let dataURL = 'https://raw.githubusercontent.com/wy-chan/devchallenges_Windbnb/main/stays.json';
 
-let currentLocation = "Add location";
-let currentGuest = 0;
-    
-
-function getData() {
-  return $.ajax({
-    headers: {
-      Accept: 'application/json'
-    },
-    url:
-      dataURL,
-    success: 
-    function (jsonData) {
-      if (typeof jsonData === 'string') {
-        myData = JSON.parse(jsonData);
-        console.log('myData');
-        console.log(myData);
-      }
-    }
-  });
+body{
+margin:0;
+min-height:100vh;
+ 
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+  
+color:#333333;
+  
+font-family: Montserrat;
+font-style: normal;
+font-size:14px;
+font-weight: 500;
+}
+header{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:white;
+}
+main{
+  width:86.8%;
+  max-width: 1250px;
+  margin-top:148px;
+  margin-bottom:100px;
+}
+h1{
+font-family: Montserrat;
+font-style: normal;
+font-weight: bold;
+font-size: 24px; 
+margin:0;
+}
+h2{
+font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+margin:0;
 }
 
+#navbar{
+  padding-top:21px;
+  padding-bottom:21px;
+  display: flex;
+  justify-content: space-between;
+  width:86.8%;
+  max-width: 1250px;
+   background: white;
+} 
 
-function getBoxes(d){
-  for(let i=0; i< d.length;i++){
-    getBox(d[i]);
+#navbar-expand{
+  position: absolute;
+  top:0;
+  left:0;
+  height:100vh;
+  width:100vw;
+  background: rgba(79, 79, 79, 0.4);
+}
+.navbar-expand-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding-top:93px;
+}
+.edit-box{
+  width:93.6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+.edit-text{
+font-weight: 700;
+font-size: 15px;
+line-height: 15px;
+}
+.search-icon-l-1{
+ font-size: 12px;
+}
+
+.search-bar-expand{
+  width:86.8%;
+  background: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+.top-logo{
+width:96px;
+}
+.search-bar{
+  height: 55px;
+  width: 297px;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.search-location{
+  width: 138px;
+}
+.search-guest{
+  width: 106px;
+}
+
+.search-icon{
+  width:53px;
+  color:#EB5757;
+}
+.search-btn-s, .search-btn-l{
+  background:none;
+  border:none;
+  height: 55px;
+} 
+.search-btn-l{
+  flex-basis:33%;
+}
+
+.search-btn-s:hover,.search-btn-l:hover{
+  cursor: pointer;
+  border-radius: 16px;
+  background: #f5f5f5;
+}
+
+.search-icon-l{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap:11px;
+  font-size: 14px;
+  color: #F2F2F2;
+  background: #EB5757;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding:15px 26px;
+  border: none;
+}
+.search-icon-l-2{
+  display:none;
+}
+
+.search-icon-l:hover{
+   cursor: pointer;
+  background: #E34d4d;
+}
+.search-icon-l > .search-icon{
+  color: #F2F2F2;
+  size: 17px 17px;
+}
+.search-icon-l-box{
+  flex-basis:33%;
+  display: flex;
+  justify-content: center;
+}
+
+.search-option{
+  color: #BDBDBD;
+  font-family: Mulish;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  border-right: 1px solid #F2F2F2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap:4px;
+}
+
+.search-option-l{
+  align-items: flex-start;
+  padding-left: 27px;
+}
+.search-option-l > h3{
+  font-weight: 800;
+  font-size: 9px;
+  text-transform: uppercase;
+  margin:0;
+}
+.search-option-l > p{
+  margin:0;
+}
+.search-guest-l{
+  border:none;
+}
+
+#guest-list{
+  margin-left:33%;
+  padding-left: 27px;
+}
+.hidden{
+  display:none;
+}
+.search-list-box{
+  margin-top:41px;
+  margin-bottom:18px;
+  width:86.8%;
+  display:flex;
+}
+.search-list{
+    flex-basis:33%;
+}
+.search-list > li{
+  color: #4F4F4F;
+  list-style-type:none;
+  margin-bottom:35px;
+  display: flex;
+  align-items: center;
+  column-gap:10px;
+}
+.search-list > li:hover{
+  cursor:pointer;
+  color: #EB5757;
+  font-weight: bold;
+}
+.location-list{
+  padding-left:26px;
+  margin:0;
+}
+.place-icon{
+  size: 19.5px 14px;
+}
+.guest-list>h4{
+margin:0;
+}
+.guest-list>p{
+  color:#BDBDBD;
+  margin-top:0;
+  margin-bottom:12px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 18px;
+}
+.guest-no-box{
+  display: flex;
+  align-items: center;
+  column-gap:15px;
+  margin-bottom:52px;
+}
+.guest-no{
+  font-size: 14px;
+  font-weight: bold;
+}
+.change-btn{
+  background: none;
+  border: 1px solid #828282;
+  border-radius: 4px;
+  height: 23px;
+  width:23px;
+  padding:0;
+  color:#828282;
+}
+.change-btn:hover{
+  cursor:pointer;
+  color:#EB5757;
+  border: 1px solid #EB5757;
+}
+.change-btn:disabled{
+  cursor:default;
+  color:#dddddd;
+  border: 1px solid #dddddd;
+}
+.change-icon{
+  font-size:20px;
+  padding:0;
+  margin:0;
+}
+
+.nav-blank{
+  height:100%;
+  width: 100%;
+}
+.search-btn-l:focus, .search-focus{
+  border: 1px solid #333333;
+  background: white;
+  border-radius: 16px;
+}
+#page-heading{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:32px;
+}
+.search-active{
+  color: #333333;
+}
+#stays-no{
+background: pink;
+}
+.grid-group{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 49px;
+  column-gap: 2%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: pink;
+}
+.grid-box{
+  width:32%;
+}
+.img-box{
+height: 269px;
+border-radius: 24px;
+background:#ddd;
+}
+.room-img{
+width: 100%;
+height: 269px;
+border-radius: 24px;
+object-fit: cover;
+}
+.desc-box{
+  height:28px;
+  width:100%;
+  margin-top:15px;
+  margin-bottom:12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.desc-box-L{
+  display: flex;
+  align-items: center;
+}
+.super-host{
+  padding:7px 10px;
+  margin-right:10px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #4F4F4F;
+  border: 1px solid #4F4F4F;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+.details{
+  color: #828282;
+}
+.rating{
+  color: #4F4F4F;
+}
+.desc-box-R{
+  display: flex;
+  align-items: center;
+  column-gap:7px;
+}
+.star-icon{
+  color: #EB5757;
+  font-size: 16px;
+}
+.box-title{
+  width: 100%;
+}
+footer{
+padding-bottom: 24px;  
+width: 100%;
+text-align: center;
+}
+
+em{
+  font-style: normal;
+  font-weight: bold;
+}
+@media(max-width:1300px){
+  .grid-group{
+  column-gap: 4%;
+}
+.grid-box{
+  width:48%;
+}
+}
+
+@media(max-width:900px){
+  main{
+  margin-top:167px;
+  width:93.6%;
+}
+  .grid-box, .desc-box, .img-box, .room-img{
+    width:100%;
   }
-}
 
-function getBox(d){
-const gridBox = document.createElement("div");
-gridBox.classList.add("grid-box");
-const imgBox = document.createElement("div");
-imgBox.classList.add("img-box");
-const roomImg = document.createElement("img");
-roomImg.classList.add("room-img");
-roomImg.alt = "Room Image";
-roomImg.src= d.photo;
-const descBox = document.createElement("div");
-descBox.classList.add("desc-box");
-const descBoxL = document.createElement("div");
-descBoxL.classList.add("desc-box-L");
-const superHost = document.createElement("span");
-superHost.classList.add("super-host");
-superHost.textContent="Super host";
-const details = document.createElement("span");
-details.classList.add("details");
-details.textContent= d.type;
-const beds = document.createElement("beds");
-beds.classList.add("details");
-beds.textContent=" . " + d.beds + " beds";
-const descBoxR = document.createElement("div");
-descBoxR.classList.add("desc-box-R");
-const starIcon = document.createElement("span");
-starIcon.classList.add("material-icons");
-starIcon.classList.add("star-icon");
-starIcon.textContent="star";
-const rating = document.createElement("span");
-rating.classList.add("rating")
-rating.textContent= d.rating;
-const boxTitle = document.createElement("h2");
-boxTitle.classList.add("box-title");
-boxTitle.textContent = d.title;
-
-gridBox.appendChild(imgBox);
-gridBox.appendChild(descBox);
-gridBox.appendChild(boxTitle);
-
-imgBox.appendChild(roomImg);
-
-descBox.appendChild(descBoxL);
-descBox.appendChild(descBoxR);
-if(d.superHost == true){
-descBoxL.appendChild(superHost);
-}
-descBoxL.appendChild(details);
-if(d.beds != null){
-descBoxL.appendChild(beds);
-}
-descBox.appendChild(descBoxR);
-descBoxR.appendChild(starIcon);
-descBoxR.appendChild(rating);
-
-document.getElementById("grid-group").appendChild(gridBox);
-}
-
-function openNav(){
-  document.getElementById("navbar-expand").classList.remove("hidden");
-}
-function closeNav(){
-  document.getElementById("navbar-expand").classList.add("hidden");
-}
-function openLocationSelect(){
-document.getElementById("search-guest-l").classList.remove("search-focus");
-document.getElementById("search-location-l").classList.add("search-focus");
-document.getElementById("location-list").classList.remove("hidden");
-document.getElementById("guest-list").classList.add("hidden");
-document.getElementById("search-location-l").classList.add("search-active");
-if($("#total-guests").text() == "Add guests"){
-  document.getElementById("search-guest-l").classList.remove("search-active");
-};
-}
-function openGuestSelect(){
-document.getElementById("search-location-l").classList.remove("search-focus");
-document.getElementById("search-guest-l").classList.add("search-focus");
-document.getElementById("location-list").classList.add("hidden");
-document.getElementById("guest-list").classList.remove("hidden");
-document.getElementById("search-guest-l").classList.add("search-active");
-  if($("#searh-bar-location").text() == "Add location"){
-  document.getElementById("search-location-l").classList.remove("search-active");
-};
-}
-
-function locationSelect(t){
-  currentLocation= t.slice(5,t.length);
-  $("#searh-bar-location").text(currentLocation);
-  openGuestSelect();
-}
-
-function handleGuest(t){
-  let currentAdult = parseInt($("#adult-no").text());
-  let currentChild = parseInt($("#child-no").text());
-  let currentTotal = currentAdult + currentChild;
-  let newTotal = currentTotal;
-
-  switch(t){
-      case "adult-add": 
-      if(currentAdult == 0 ||currentAdult ==1){
-        $("#adult-remove").prop('disabled', false);
-      };
-      currentAdult+=1;
-      newTotal+=1;
-      $("#adult-no").text(currentAdult);
-      break;
-      case "adult-remove": 
-      currentAdult-=1;
-      newTotal-=1;
-      $("#adult-no").text(currentAdult);
-      if(currentAdult == 0){
-        $("#adult-remove").prop('disabled', true);
-      };
-      break;
-      case "child-add" : 
-      if(currentChild == 0){
-        $("#child-remove").prop('disabled', false);
-      };
-      currentChild+=1;
-      newTotal+=1;
-      $("#child-no").text(currentChild);
-      if(currentAdult==0){
-        handleGuest("adult-add");
-        newTotal+=1;
-      }
-      break;
-      case "child-remove": 
-      currentChild-=1
-      newTotal-=1;
-      $("#child-no").text(currentChild);
-      if(currentChild == 0){
-        $("#child-remove").prop('disabled', true);
-      };
-      break;
-      default: ;
-  };
-  if(currentAdult==1){
-    if(currentChild!=0){
-          $("#adult-remove").prop('disabled', true);
-    }else{
-          $("#adult-remove").prop('disabled', false);
-    }
-  };
-  if(newTotal != 0){
-     $("#total-guests").text(newTotal+" guests");
-  }else{
-    $("#total-guests").text("Add guests");
-  };
-  currentGuest = newTotal;
-}
-
-function sortLocation(){
-  let newList=[];
-  for(let i=0; i< myData.length;i++){
-    let checkLocation = currentLocation.indexOf(myData[i].city);
-    if(checkLocation>= 0){
-      newList.push(myData[i]);
-    };
-  };
-  return newList;
-}
-
-function sortGuests(list){
-  let newList=[];
-  for(let i=0; i< list.length;i++){
-    if(currentGuest <= list[i].maxGuests){
-      newList.push(list[i]);
-    };
-  };
-  return newList; 
-}
-
-function handleSearch(){
-  currentLocation = $("#searh-bar-location").text();
-  currentguest = $("#total-guests").text();
-  $("#search-location").text(currentLocation);
-  $("#search-guest").text(currentguest);
-  if(currentguest == "Add guests"){
-    $("#search-guest").removeClass("search-active");
-  }else{
-    $("#search-guest").addClass("search-active");
-  };
-    if(currentLocation == "Add location"){
-    $("#search-location").removeClass("search-active");
-  }else{
-    $("#search-location").addClass("search-active");
-  };
-  let locationList = sortLocation();
-  let guestList = sortGuests(locationList);
-  if(guestList.length <12){
-     $("#stays-no").text(guestList.length+ " stays");
-  }else{
-     $("#stays-no").text("12+ stays");
+  #navbar{
+    flex-direction: column;
+    row-gap:37.25px;
   }
-  $("#grid-group").empty();
-  getBoxes(guestList);
+  .search-bar{
+    align-self:center;
+  }
+  .search-bar-expand{
+    height:113px;
+   width:93.6%;
+   flex-direction: column; 
+
+  }
+  .edit-box{
+  display: flex;
+  margin-bottom:16px;
+  }
+  .close-btn:hover{
+  cursor: pointer;
+  }
+  .navbar-expand-box{
+    padding-top:18px;
+  }
+  .search-icon-l-box{
+    display: none;
+  }
+  .search-icon-l-2{
+  display:flex;
+  margin-bottom:24px;
+}
+.search-btn-l{
+ width:100%;
+  padding-top: 11px;
+  padding-bottom:11px;
+  margin:0;
+}
+  #guest-list{
+  margin-left:0;
+  padding-left: 27px;
+}
+  .search-list-box{
+      width:93.6%;
+  }
+  .search-list{
+    flex-basis:auto;
 }
 
-$(document).ready(function () {
-  getData().then(() => {
-     myDataSorted = myData;
-     getBoxes(myDataSorted);
-  });
-  $(".search-btn-s").on("click",openNav);
-  $(".search-icon-l").on("click",closeNav);
-  $(".close-nav").on("click",closeNav);
-  $(".location-options").on("click",function(){locationSelect($(this).text())});
-  $(".search-location").on("click",openLocationSelect);
-  $("#search-location-l").on("click",openLocationSelect);
-  $(".search-guest").on("click",openGuestSelect);
-  $("#search-guest-l").on("click",openGuestSelect);
-  $(".change-btn").on("click",function(){handleGuest(this.id)});
-  $(".search-icon-l").on("click",handleSearch);
-});
+}
