@@ -221,7 +221,7 @@ $(document).ready(function () {
   });
   $(".search-btn-s").on("click",openNav);
   $(".search-icon-l").on("click",closeNav);
-  $(".nav-blank").on("click",closeNav);
+  $(".close-nav").on("click",closeNav);
   $(".location-options").on("click",function(){locationSelect($(this).text())});
   $(".search-location").on("click",openLocationSelect);
   $("#search-location-l").on("click",openLocationSelect);
